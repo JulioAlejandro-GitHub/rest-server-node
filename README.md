@@ -1,3 +1,3 @@
 # WebServer + RestServer
 
-Ejecutar : npm install, para recostruir modulos de node.
+Ejecutar : npm install, para reconstruir modulos de node.
