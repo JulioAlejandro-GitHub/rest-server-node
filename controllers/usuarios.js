@@ -106,10 +106,14 @@ const usuariosPut = async(req, res = response) => {
 }
 const usuariosDelete = async(req, res = response) => {
     const {id} = req.params;//id del usuario actualizar
+
+    // extraigo var del request agregada en validar-jwt
+    //const usuarioAutenticado = req.usuarioAutenticado;
+
     const usuario = await Usuario.findByIdAndUpdate(id, {estado:false});
     res.status(202).json({
         'msg':'delete api  - controlador',
-        id
+        usuario
     });
 }
 module.exports = {

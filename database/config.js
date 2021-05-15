@@ -11,9 +11,7 @@ const dbConnection = async() => {
             useFindAndModify:false
         });
 
-        console.log('BD online *** s');
-
-        
+        console.log('BD online Clusters mongodb Atlas :: https://cloud.mongodb.com/');
 
     } catch (error) {
         console.log(error);

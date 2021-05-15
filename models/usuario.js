@@ -35,7 +35,7 @@ const UsuarioSchema = Schema({
 
 /*
 debe ser una funcion normal
-*** si es de flecha, se mantiene (traspasan los valore glovalmente)
+*** si es de flecha, se mantiene (traspasan los valores glovalmente)
 en este caso queremos que sea solo de esta instancia
 * cuando se llama el toJSON pasa por aqui
 
@@ -48,7 +48,8 @@ usuariosPost
     })
 */
 UsuarioSchema.methods.toJSON = function() {
-    const {__v, password, google, ...usuario} = this.toObject();
+    const {__v, password, google, _id, ...usuario} = this.toObject();
+    usuario.uid = _id;
     return usuario;
 }
 /*
