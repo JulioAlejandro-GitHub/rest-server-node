@@ -7,7 +7,7 @@
     "start": "node app"
   },
   "keywords": [],
-  "author": "Julio Alejandro morales Gutiérrez",
+  "author": "Julio Alejandro Morales Gutiérrez",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
