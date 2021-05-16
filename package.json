@@ -1,13 +1,13 @@
 {
   "name": "07-restserver",
   "version": "1.0.0",
-  "description": "",
+  "description": "Esqueleto server express REST",
   "main": "index.js",
   "scripts": {
     "start": "node app"
   },
   "keywords": [],
-  "author": "",
+  "author": "Julio Alejandro morales Gutiérrez",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
