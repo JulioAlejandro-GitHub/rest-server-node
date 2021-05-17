@@ -14,7 +14,8 @@ class Server {
         this.rutasPath = {
             'auth':'/api/auth',
             'categorias':'/api/categorias',
-            'usuarios':'/api/usuarios'
+            'usuarios':'/api/usuarios',
+            'productos':'/api/productos'
         }
 
         // conect DB
@@ -45,6 +46,7 @@ class Server {
         this.app.use(this.rutasPath.auth,require('../routes/auth'));
         this.app.use(this.rutasPath.usuarios,require('../routes/usuarios'));
         this.app.use(this.rutasPath.categorias,require('../routes/categorias'));
+        this.app.use(this.rutasPath.productos,require('../routes/productos'));
     };
 
     listen() {
