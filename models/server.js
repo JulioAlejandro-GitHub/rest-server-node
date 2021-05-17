@@ -15,7 +15,8 @@ class Server {
             'auth':'/api/auth',
             'categorias':'/api/categorias',
             'usuarios':'/api/usuarios',
-            'productos':'/api/productos'
+            'productos':'/api/productos',
+            'buscar':'/api/buscar'
         }
 
         // conect DB
@@ -47,6 +48,7 @@ class Server {
         this.app.use(this.rutasPath.usuarios,require('../routes/usuarios'));
         this.app.use(this.rutasPath.categorias,require('../routes/categorias'));
         this.app.use(this.rutasPath.productos,require('../routes/productos'));
+        this.app.use(this.rutasPath.buscar,require('../routes/buscar'));
     };
 
     listen() {
