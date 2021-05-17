@@ -1,6 +1,14 @@
 
+/*
 const Role = require('../models/role');
 const Usuario = require('../models/usuario');
+const Categoria = require('../models/categoria');
+*/
+const {
+    Role,
+    Usuario,
+    Categoria
+} = require('../models');
 
 const esRoleValido = async(rol='') => {
     if (!Usuario.schema.obj.rol.enum.includes(rol)) {
@@ -26,9 +34,16 @@ const existeUsuarioById = async(id='') => {
         throw new Error(`id no existe en BD  ***** :: ${id}  :: `)
     }
 }
-
+const existeCategoriaById = async(id='') => {
+    // verificar correo
+    const existeCategoria = await Categoria.findById({_id:id});
+    if (!existeCategoria) {
+        throw new Error(`id Categoria no existe en BD  ***** :: ${id}  :: `)
+    }
+}
 module.exports = {
     esRoleValido,
     existeEmail,
-    existeUsuarioById
+    existeUsuarioById,
+    existeCategoriaById
 }

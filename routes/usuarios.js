@@ -20,6 +20,7 @@ const {
     existeEmail,
     existeUsuarioById
 } = require('../helpers/db-validators');
+
 const {
     usuariosGet,
     usuariosPut,
@@ -46,7 +47,6 @@ router.post('/', [
     check('password','password invalido, min 5').isLength({min:5}),
     
     check('correo').custom(existeEmail),
-
 
     //check('rol').custom( (rol) => esRoleValido(rol) ),
     // es lo mismo, por referencia "rol" para como parametro, tienen el mismo nombre
