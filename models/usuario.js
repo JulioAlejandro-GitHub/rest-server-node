@@ -2,14 +2,17 @@
 const {Schema, model} = require('mongoose');
 
 const UsuarioSchema = Schema({
-    nombre:{
-        type: String,
-        required: [true, 'Nomnre obligatorio']
-    },
     correo:{
         type: String,
         required: [true, 'Correo obligatorio'],
-        unique:true
+        unique:true,
+        trim: true,
+        index: true
+    },
+    nombre:{
+        type: String,
+        required: [true, 'Nomnre obligatorio'],
+        trim: true
     },
     password:{
         type: String,
