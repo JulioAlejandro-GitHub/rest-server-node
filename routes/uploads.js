@@ -6,7 +6,8 @@ const {coleccionesPermitidas} = require('../helpers');
 const {
     cargarArchivo, 
     actualizarImagen,
-    buscarUrlImagen
+    buscarUrlImagen,
+    actualizarCloudinary
 } = require('../controllers/uploads');
 
 const router = Router();
@@ -21,7 +22,7 @@ router.put('/:coleccion/:id', [
     check('id','id no es mongoID').isMongoId(),
     check('coleccion').custom(c=>coleccionesPermitidas(c)),
     validarCampos
-], actualizarImagen);
+], actualizarCloudinary);
 
 router.get('/:coleccion/:id', [
     check('id','id no es mongoID').isMongoId(),
