@@ -1,5 +1,4 @@
 
-
 const {Schema, model} = require('mongoose');
 
 const ProductoSchema = Schema({
@@ -19,6 +18,9 @@ const ProductoSchema = Schema({
         unique:true,
         trim: true,
         index: true
+    },
+    img:{
+        type:String
     },
     estado:{
         type: Boolean,

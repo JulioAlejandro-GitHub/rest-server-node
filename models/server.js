@@ -1,8 +1,8 @@
 
 const express = require('express');
-
 //El intercambio de recursos de origen cruzado ( CORS )
 var cors = require('cors');
+const fileUpload = require('express-fileupload');
 
 const { dbConnection } = require('../database/config');
 
@@ -16,7 +16,8 @@ class Server {
             'categorias':'/api/categorias',
             'usuarios':'/api/usuarios',
             'productos':'/api/productos',
-            'buscar':'/api/buscar'
+            'buscar':'/api/buscar',
+            'uploads':'/api/uploads'
         }
 
         // conect DB
@@ -42,6 +43,13 @@ class Server {
 
         // directorio publico
         this.app.use(express.static('public'));
+
+        // Note that this option available for versions 1.0.0 and newer. 
+        this.app.use(fileUpload({
+            useTempFiles : true,
+            tempFileDir : '/tmp/',
+            createParentPath:true //crea dir sino existe!!!
+        }));
     }
     routes() {
         this.app.use(this.rutasPath.auth,require('../routes/auth'));
@@ -49,6 +57,8 @@ class Server {
         this.app.use(this.rutasPath.categorias,require('../routes/categorias'));
         this.app.use(this.rutasPath.productos,require('../routes/productos'));
         this.app.use(this.rutasPath.buscar,require('../routes/buscar'));
+        this.app.use(this.rutasPath.uploads,require('../routes/uploads'));
+        
     };
 
     listen() {

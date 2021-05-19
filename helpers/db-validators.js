@@ -53,10 +53,18 @@ const validaIdCategoriaProducto = async(id='') => {
         throw new Error(`id Categoria no existe en BD  ***** :: [${id}]  :: `)
     }
 }
+const coleccionesPermitidas = (coleccion='', colecciones=['usuarios','productos']) => {
+    const incluida = colecciones.includes(coleccion);
+    if (!incluida) {
+        throw new Error(`coleccion sin implementar  ***** :: [${coleccion}]  :: `)
+    }
+    return true;
+}
 module.exports = {
     esRoleValido,
     existeEmail,
     existeUsuarioById,
     existeCategoriaById,
-    existeProductoById
+    existeProductoById,
+    coleccionesPermitidas
 }
